@@ -6,20 +6,61 @@ def join_ingredients(src)
   #
   # "I love (inner array element 0) and (inner array element 1) on my pizza""
   # As such, there should be a new String for each inner array, or pair
-end
+  row_index = 0
+  newArr = []
+   while row_index < src.count do
+    element_index = 0
+      newArr.push("I love #{src[row_index][element_index]} and #{src[row_index][element_index + 1]} on my pizza")
+    row_index += 1
+    end
+    p newArr
+  end
 
 def find_greater_pair(src)
   # src will be an array of [ [number1, number2], ... [numberN, numberM] ]
   # Produce a new Array that contains the larger number of each of the pairs
   # that are in the inner Arrays
-end
 
-def total_even_pairs(src)
-  # src will be an array of [ [number1, number2], ... [numberN, numberM] ]
-  # if both numbers in the pair are even, then add both those numbers to the
-  # total
-  #
-  # As a reminder any number % 2 will return 0 or 1. If the result is 0, then
-  # the number was even. Review the operator documentation if you've forgotten
-  # this!
-end
+  row_index = 0
+  largestNums = []
+    while row_index < src.count do
+      element_index = 0
+      element1 = src[row_index][element_index]
+      element2 = src[row_index][element_index + 1]
+      if element1 > element2
+        largestNums.push(element1)
+      else
+        largestNums.push(element2)
+      end
+      row_index +=1
+    end
+
+  p largestNums
+
+  end
+
+  def total_even_pairs(src)
+    # src will be an array of [ [number1, number2], ... [numberN, numberM] ]
+    # if both numbers in the pair are even, then add both those numbers to the
+    # total
+    #
+    # As a reminder any number % 2 will return 0 or 1. If the result is 0, then
+    # the number was even. Review the operator documentation if you've forgotten
+    # this!
+  returnVar = 0
+  row_index = 0
+  while row_index < src.count do
+    element_index = 0
+      candidate1 = src[row_index][element_index]
+      candidate2 = src[row_index][element_index + 1]
+      if candidate1 % 2 == 0 && candidate2 % 2 == 0
+        returnVar += candidate1
+        returnVar += candidate2
+      end
+
+    row_index += 1
+  end #=> nil
+
+    p returnVar
+
+  end
